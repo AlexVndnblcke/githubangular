@@ -1,0 +1,11 @@
+{
+  "name": "Tutorial",
+  "authors": [
+    "alexvndnblcke <alexander.vandenbulcke95@gmail.com>"
+  ],
+  "description": "Tutorial how to learn Angular",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "index.html"
+}

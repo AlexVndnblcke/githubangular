@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="home">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="scripts/application.js"></script>
+</head>
+<body ng-controller="StoreController as store" >
+    <h1>Gem store!</h1>
+    <div class="list-group">
+        <div ng-repeat="product in store.products" class="list-group-item">
+            <h1>Product name:{{product.name}}</h1>
+            <h2>Product price ${{product.price}}</h2>
+            <p>Product description: {{product.description}}</p>
+            <button ng-show="product.canPurchase"> Add to Cart </button>
+        </div>
+    </div>
+</body>
+</html>
