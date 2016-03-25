@@ -10,13 +10,29 @@
 </head>
 <body ng-controller="StoreController as store" >
     <h1>Gem store!</h1>
-    <div class="list-group">
+    <div class="list-group" ng-hide="store.products | ">
         <div ng-repeat="product in store.products" class="list-group-item">
-            <h1>Product name:{{product.name}}</h1>
-            <h2>Product price ${{product.price}}</h2>
+            <h3>Product name:{{product.name}}</h3>
+            <h3>Product price {{product.price | currency}}</h3>
             <p>Product description: {{product.description}}</p>
             <button ng-show="product.canPurchase"> Add to Cart </button>
         </div>
+    </div>
+    <button class="btn-default" ng-click="store.changeAddingEnabled()">Add new product</button>
+    <!--Adding new product-->
+    <div ng-show="store.addingEnabled">
+        <h3>Product name: {{store.newproduct.name}}</h3>
+        <h3>Product price: {{store.newproduct.price | currency}}</h3>
+        <p>Product description: {{store.newproduct.description}}</p>
+        <button ng-show="store.newproduct.canPurchase"> Add to Cart </button>
+
+        <input type="text" class="form-control" ng-model="store.newproduct.name"/>
+        <input type="text" class="form-control" ng-model="store.newproduct.price"/>
+        <input type="text" class="form-control" ng-model="store.newproduct.description"/>
+        <input class="checkbox" type="checkbox" ng-model="store.newproduct.canPurchase"/>
+        <button ng-click="store.addProduct()">
+            Add to products
+        </button>
     </div>
 </body>
 </html>

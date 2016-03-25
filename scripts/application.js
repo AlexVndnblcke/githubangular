@@ -6,6 +6,19 @@
 
     app.controller('StoreController',function(){
         this.products = gems;
+        this.addingEnabled = false;
+        this.changeAddingEnabled = function(){
+            this.addingEnabled  = !this.addingEnabled;
+        }
+        this.newproduct = null;
+        this.addProduct = function(){
+            this.products[this.products.length] = {
+                name: this.newproduct.name,
+                price: this.newproduct.price,
+                description: this.newproduct.description,
+                canPurchase: this.newproduct.canPurchase,
+            };
+        };
     });
 
     var gems = [
